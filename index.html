@@ -99,7 +99,7 @@
     });
 
     stars.children.iterate(function (child) {
-      child.setBounce(Phaser.Math.FloatBetween(0.4, 0.8));
+      child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
     });
 
     bombs = this.physics.add.group();
@@ -108,7 +108,7 @@
 
     this.physics.add.collider(player, platforms);
     this.physics.add.collider(stars, platforms);
-    this.physcis.add.collider(bombs, platforms);
+    this.physics.add.collider(bombs, platforms);
 
     this.physics.add.overlap(player, stars, collectStar, null, this);
     this.physics.add.collider(player, bombs, hitBomb, null, this);
@@ -165,7 +165,7 @@
   function hitBomb (player, bomb) {
     this.physics.pause();
     player.setTint(0xff0000);
-    player.anims.plaay('turn');
+    player.anims.play('turn');
     gameOver = true;
 
   }
